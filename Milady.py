@@ -11,10 +11,10 @@ class actor:
     # skill3 = "haojiecichang"
 
 
-    def walk(self):
+    def walk(self,a):
         # walk = "还有5秒到达战场"
         print("还有5秒到达战场")
-        # return
+
     def arrive(self):
         # arrive = "到达战场"
         print("到达战场")
