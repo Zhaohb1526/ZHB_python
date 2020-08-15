@@ -26,7 +26,7 @@ class Testcalc:
                                  (0,-1,-1),
                                  # (0,1,1),
                                  # (0,1,1),
-                             ])
+                             ],ids=['整数',  '小数', '大数', '零'])
     def test_add(self,a,b,expect):
         '''
         测试相加
@@ -35,6 +35,9 @@ class Testcalc:
         # calc = calculator()
         result = self.calc.add(a,b)
         assert expect == result
+
+
+
     @pytest.mark.parametrize('a,b,expect',
                              [
                                  (0,1,0),
@@ -43,7 +46,7 @@ class Testcalc:
                                  (0,-1,0),
                                  # (0,1,1),
                                  # (0,1,1),
-                             ])
+                             ],ids=['整数',  '小数', '大数', '零'])
     def test_div(self,a,b,expect):
         '''
         测试相除
