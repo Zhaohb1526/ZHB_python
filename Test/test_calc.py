@@ -13,19 +13,23 @@ pytest命名规则：
 def get_datas():
     with open('./datas/calculator.yml',encoding='utf-8') as f:
         mydatas = yaml.safe_load(f)
-        adddatas = mydatas['add']['datas']
-        myids = mydatas['add']['myids']
+        adddatas = mydatas['add','div']['datas']
+        myids = mydatas['add','div']['myids']
     return [adddatas,myids]
 
-
+@pytest.fixture()
 class Testcalc:
-    def setup_class(self):
-        print("setup:开始计算")
-        self.calc = calculator()
+    # def setup_class(self):
+    #     print("setup:开始计算")
+    #     self.calc = calculator()
+    #
+    # def teardown_class(self):
+    #     print("teardown:计算结束")
+    #     self.calc = calculator()
 
-    def teardown_class(self):
-        print("teardown:计算结束")
-        self.calc = calculator()
+    print("开始计算")
+    yield
+    print("结束计算")
 
     # @pytest.mark.add
     @pytest.mark.parametrize('a,b,expect',get_datas()[0],ids=get_datas()[1])

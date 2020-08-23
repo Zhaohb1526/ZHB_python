@@ -49,6 +49,15 @@ def get_datas1():
         myids1 = mydatas['div']['myids1']
     return [divdatas, myids1]
 
+class Testcalc1:
+    def setup_class(self):
+            print("setup:开始计算")
+            self.calc = calculator()
+
+    def teardown_class(self):
+            print("teardown:计算结束")
+            self.calc = calculator()
+
     @pytest.mark.parametrize('a,b,expect', get_datas1()[0], ids=get_datas1()[1])
     def test_div(self, a, b, expect):
         '''
